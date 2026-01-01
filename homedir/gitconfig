@@ -1,7 +1,7 @@
 [alias]
 	# Confirms name and email of last commit
 	author = log -1 --format='Author: %an <%ae>'
-	
+
 	# Worktree shortcuts
 	wt = worktree
 	wta = worktree add
@@ -14,5 +14,3 @@
 [include]
 	# Machine specific stuff
 	path = ~/.gitconfig.local
-[user]
-	email = jd-381@users.noreply.github.com
