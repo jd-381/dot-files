@@ -1,0 +1,13 @@
+[alias]
+	# Worktree shortcuts
+	wt = worktree
+	wta = worktree add
+	wtl = worktree list
+	wtr = worktree remove
+	wtp = worktree prune
+	wtmv = worktree move
+[fetch]
+	prune = true
+[include]
+	# Machine specific stuff
+	path = ~/.gitconfig.local

@@ -1,0 +1,89 @@
+" Install vim-plug if not present
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-sensible'           " Sensible defaults
+Plug 'tpope/vim-surround'           " Surround text with quotes/brackets
+Plug 'tpope/vim-commentary'         " Easy commenting
+Plug 'junegunn/fzf.vim'             " Fuzzy finder
+call plug#end()
+
+" Basic Settings
+set nocompatible              " Use Vim settings, not Vi
+syntax on                     " Enable syntax highlighting
+filetype plugin indent on     " Enable filetype detection, plugins, and indent
+
+" UI/Display
+set number                    " Show line numbers
+set relativenumber            " Relative line numbers (easier for motions)
+set showcmd                   " Show command in bottom bar
+set cursorline                " Highlight current line
+set wildmenu                  " Visual autocomplete for command menu
+set showmatch                 " Highlight matching brackets/parens
+set laststatus=2              " Always show status line
+set ruler                     " Show line/column number in status
+
+" Search
+set incsearch                 " Search as you type
+set hlsearch                  " Highlight search results
+set ignorecase                " Case insensitive search
+set smartcase                 " Case sensitive if uppercase used
+
+" Indentation
+set tabstop=4                 " Width of tab character
+set shiftwidth=4              " Width of indent
+set expandtab                 " Use spaces instead of tabs
+set autoindent                " Copy indent from current line
+set smartindent               " Smart indenting on new lines
+
+" Performance
+set lazyredraw                " Don't redraw during macros
+set ttyfast                   " Faster scrolling
+
+" Backups and Undo
+set nobackup                  " No backup files
+set noswapfile                " No swap files
+set undofile                  " Persistent undo
+set undodir=~/.vim/undo       " Undo directory
+
+" Usability
+set backspace=indent,eol,start " Backspace over everything
+set mouse=a                   " Enable mouse support
+set clipboard=unnamed         " Use system clipboard
+set encoding=utf-8            " UTF-8 encoding
+set splitbelow                " Horizontal splits below
+set splitright                " Vertical splits to right
+
+" Key Mappings
+let mapleader = " "           " Set leader key to spacebar
+
+" Clear search highlighting
+nnoremap <leader><space> :nohlsearch<CR>
+
+" Quick save
+nnoremap <leader>w :w<CR>
+
+" Quick quit
+nnoremap <leader>q :q<CR>
+
+" Move between splits easier
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Move lines up/down
+nnoremap <leader>j :m .+1<CR>==
+nnoremap <leader>k :m .-2<CR>==
+vnoremap <leader>j :m '>+1<CR>gv=gv
+vnoremap <leader>k :m '<-2<CR>gv=gv
+
+" Show hidden characters
+set list
+set listchars=tab:→\ ,trail:·,nbsp:␣
+
+" 2-space indents for certain files
+autocmd FileType javascript,typescript,json,yaml,html,css setlocal tabstop=2 shiftwidth=2

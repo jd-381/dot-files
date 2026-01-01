@@ -1,0 +1,6 @@
+# Machine specific stuff
+Include config.local
+
+Host *
+    AddKeysToAgent yes
+    UseKeychain yes

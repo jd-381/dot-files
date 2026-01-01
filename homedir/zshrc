@@ -1,0 +1,10 @@
+# Autocomplete
+autoload -Uz compinit && compinit
+
+# Starship
+eval "$(starship init zsh)"
+
+# Machine specific stuff
+if [ -f ~/.zshrc.local ]; then
+    source ~/.zshrc.local
+fi
