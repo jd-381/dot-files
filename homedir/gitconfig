@@ -1,8 +1,13 @@
 [alias]
-	# Confirms name and email of last commit
-	author = log -1 --format='Author: %an <%ae>'
-
-	# Worktree shortcuts
+	all = add .
+	author = log -1 --format='Author: %an <%ae>' # Prints name and email of last commit
+	br = branch
+	ci = commit
+	cim = commit -m 
+	co = checkout   
+	re = restore
+	res = restore --staged
+    st = status
 	wt = worktree
 	wta = worktree add
 	wtl = worktree list
@@ -12,5 +17,4 @@
 [fetch]
 	prune = true
 [include]
-	# Machine specific stuff
-	path = ~/.gitconfig.local
+	path = ~/.gitconfig.local # Machine specific stuff
